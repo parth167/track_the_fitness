@@ -1,6 +1,5 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const routes = require('./routes');
 
 const app = express();
 
@@ -13,7 +12,7 @@ app.use(express.static('public'));
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/workout', { useNewUrlParser: true, useUnifiedTopology: true })
  .then(() => console.log("MongoDB successfully connected"))
-  .catch(err => console.log(err)); 
+ .catch(err => console.log(err)); 
 // routes
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
